@@ -1,0 +1,1 @@
+SELECT p.name, p.sku, pd.size, pd.quantity, pd.price, pd.sale_priceFROM products p, product_details pd WHERE p.id = pd.product_id;
