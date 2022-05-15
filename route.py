@@ -10,7 +10,7 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
-@app.route('/')
+@app.route('/products')
 @cross_origin()
 def index():
     products = []
