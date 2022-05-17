@@ -1,28 +1,32 @@
-CREATE TABLE "products" (
+DROP TABLE IF EXISTS "products";
+
+CREATE TABLE IF NOT EXISTS "products" (
     id   BIGINT PRIMARY KEY,
     name TEXT,
+    image TEXT,
     sku  TEXT
 );
 
 DELETE FROM products;
 
-INSERT INTO products (id, name, sku)
-    VALUES (1,'Ray-Ban Wayfarer', 'RB3210 2112A');
+INSERT INTO products (id, name, image, sku)
+    VALUES (1, 'Ray-Ban Wayfarer', 'Ray-Ban Wayfarer', 'RB3210 2112A');
 
-INSERT INTO products (id, name, sku)
-    VALUES (2,'Ray-Ban Round', 'RB9210 1149');
+INSERT INTO products (id, name, image, sku)
+    VALUES (2, 'Ray-Ban Round', 'Ray-Ban Round', 'RB9210 1149');
 
-INSERT INTO products (id, name, sku)
-    VALUES (3,'Ray-Ban Clubmaster', 'RB3594 9093C8 53');
+INSERT INTO products (id, name, image, sku)
+    VALUES (3, 'Ray-Ban Clubmaster', 'Ray-Ban Clubmaster', 'RB3594 9093C8 53');
 
-INSERT INTO products (id, name, sku)
-    VALUES (4,'Ray-Ban RB3594', 'RB3594 2345 53');
+INSERT INTO products (id, name, image, sku)
+    VALUES (4, 'Ray-Ban RB3594', 'Ray-Ban RB3594', 'RB3594 2345 53');
 
-INSERT INTO products (id, name, sku)
-    VALUES (5,'Ray-Ban Aviator', 'RB6211 5122A 50');
+INSERT INTO products (id, name, image, sku)
+    VALUES (5, 'Ray-Ban Aviator', 'Ray-Ban Aviator', 'RB6211 5122A 50');
 
+DROP TABLE IF EXISTS "product_details";
 
-CREATE TABLE "product_details" (
+CREATE TABLE IF NOT EXISTS "product_details" (
     id         BIGINT  PRIMARY KEY,
     product_id BIGINT  REFERENCES products (id),
     size       INTEGER,
