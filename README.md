@@ -25,18 +25,18 @@
             "name": "Build db",
             "type": "python",
             "request": "launch",
-            "module": "flask",
-            "env": {
-                "FLASK_APP": "init_db.py",
-                "FLASK_ENV": "development"
-            },
-            "args": [
-                "run",
-                "--no-debugger"
-            ],
-            "jinja": true,
-            "justMyCode": true
+            "program": "init_db.py",
+            "console": "integratedTerminal"
         }
     ]
 }
+```
+
+Lanciare i seguenti comandi al primo avvio del progetto:
+
+```bash
+py -3 -m venv venv
+venv/Scirpts/activate
+pip install Flask
+pip install -U flask-cors
 ```

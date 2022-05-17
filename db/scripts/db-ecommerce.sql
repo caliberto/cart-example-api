@@ -1,6 +1,8 @@
+DROP TABLE IF EXISTS "product_details";
+
 DROP TABLE IF EXISTS "products";
 
-CREATE TABLE IF NOT EXISTS "products" (
+CREATE TABLE "products" (
     id   BIGINT PRIMARY KEY,
     name TEXT,
     image TEXT,
@@ -24,9 +26,7 @@ INSERT INTO products (id, name, image, sku)
 INSERT INTO products (id, name, image, sku)
     VALUES (5, 'Ray-Ban Aviator', 'Ray-Ban Aviator', 'RB6211 5122A 50');
 
-DROP TABLE IF EXISTS "product_details";
-
-CREATE TABLE IF NOT EXISTS "product_details" (
+CREATE TABLE "product_details" (
     id         BIGINT  PRIMARY KEY,
     product_id BIGINT  REFERENCES products (id),
     size       INTEGER,

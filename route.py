@@ -19,7 +19,7 @@ def index():
         conn = get_db_connection()
         cur = conn.cursor()
 
-        cur.execute('SELECT p.id, p.name, p.sku FROM products p')
+        cur.execute('SELECT p.id, p.name, p.sku, p.image FROM products p')
         products_rows = cur.fetchall()
 
         cur.execute('SELECT pd.id, pd.product_id, pd.size, pd.quantity, pd.price, pd.sale_price FROM product_details pd')
@@ -43,6 +43,7 @@ def index():
                 product["id"] = products_row["id"]
                 product["name"] = products_row["name"]
                 product["sku"] = products_row["sku"]
+                product["image"] = products_row["image"]
                 product["details"] = product_details
                 products.append(product)
     except:
