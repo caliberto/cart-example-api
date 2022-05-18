@@ -19,10 +19,10 @@ def index():
         conn = get_db_connection()
         cur = conn.cursor()
 
-        cur.execute('SELECT p.id, p.name, p.sku, p.image FROM products p')
+        cur.execute('SELECT p.id, p.name, p.sku, p.image, p.price, p.sale_price FROM products p')
         products_rows = cur.fetchall()
 
-        cur.execute('SELECT pd.id, pd.product_id, pd.size, pd.quantity, pd.price, pd.sale_price FROM product_details pd')
+        cur.execute('SELECT pd.id, pd.product_id, pd.size, pd.quantity FROM product_details pd')
         product_details_rows = cur.fetchall()
 
         conn.close()
@@ -32,18 +32,18 @@ def index():
                 for product_details_row in product_details_rows:
                     if product_details_row["product_id"] == products_row["id"]:
                         product_detail = {}
-                        product_detail["id"] = product_details_row["id"]
+                        product_detail["ID"] = product_details_row["id"]
                         product_detail["size"] = product_details_row["size"]
                         product_detail["quantity"] = product_details_row["quantity"]
-                        product_detail["price"] = product_details_row["price"]
-                        product_detail["sale_price"] = product_details_row["sale_price"]
                         product_details.append(product_detail)
                 
                 product = {}
-                product["id"] = products_row["id"]
+                product["ID"] = products_row["id"]
                 product["name"] = products_row["name"]
                 product["sku"] = products_row["sku"]
                 product["image"] = products_row["image"]
+                product["price"] = products_row["price"]
+                product["salePrice"] = products_row["sale_price"]
                 product["details"] = product_details
                 products.append(product)
     except:
