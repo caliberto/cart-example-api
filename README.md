@@ -6,12 +6,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch app",
+            "name": "cart-api",
             "type": "python",
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "route.py",
+                "FLASK_APP": "app.py",
                 "FLASK_ENV": "development"
             },
             "args": [
@@ -20,13 +20,6 @@
             ],
             "jinja": true,
             "justMyCode": true
-        },
-        {
-            "name": "Build db",
-            "type": "python",
-            "request": "launch",
-            "program": "init_db.py",
-            "console": "integratedTerminal"
         }
     ]
 }
@@ -36,7 +29,13 @@ Lanciare i seguenti comandi al primo avvio del progetto:
 
 ```bash
 py -3 -m venv venv
-venv/Scirpts/activate
+venv/Scripts/activate
 pip install Flask
 pip install -U flask-cors
+```
+
+Prima di startare il server react
+```bash
+set FLASK_APP=app
+flask run
 ```
